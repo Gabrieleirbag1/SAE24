@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+{%block HEAD%}
+{%endblock%}
+    
+    {% include 'MAIN/main.html' %}
+
+    {% block HEADER %}
+    {%endblock%}
+
+    {% block content %}
+    <div id="totu">
+        <table class="table table-hover tableau">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">NOM MQTT</th>
+                    <th scope="col">DATE</th>
+                    <th scope="col">HEURE</th>
+                    <th scope="col">TEMPÉRATURE</th>
+                    <th scope="col"> 
+                        <div class="filtres">
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" onclick="toggleDropdown()" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Filtres
+                                </button>
+                                <div id="dropdownMenu" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="/mainpage">Date ↑</a>
+                                    <a class="dropdown-item" href="/mainpage-r">Date ↓</a>
+                                    <a class="dropdown-item" href="/mainpage-az">A-Z</a>
+                                    <a class="dropdown-item" href="/mainpage-za">Z-A</a>
+                                </div>
+                            </div>
+                            <div class="supprimerfiltres">
+                                <a href="/mainpage" class="close" aria-label="Close">
+                                <span class="closeb" aria-hidden="true">&times;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="filtres2"> 
+                            <a href="/export-csv" class="btn btn-outline-info filtres2">Exporter</a>
+                        </div>
+                    </th>  
+                </tr>
+            </thead>
+            <tbody>
+                {% for mq, do in data %}
+                <tr>
+                    <th scope="row">{{ mq.id }}</th>
+                    <td>{{ mq.nom }}</td>
+                    <td>{{ do.date }}</td>
+                    <td>{{ do.heure }}</td>
+                    <td>{{ do.temp|floatformat:2 }}°C</td>
+                    <td><a href='update/{{ mq.id }}'><button type="button" class="btn btn-outline-success">Modifier</button></a></td>
+                    <td><a href='deletedo/{{ do.id }}'><button type="button" class="btn btn-outline-danger">Supprimer</button></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>    
+    </div>
+    <script>
+        function toggleDropdown() {
+            var dropdownMenu = document.getElementById("dropdownMenu");
+            dropdownMenu.classList.toggle("show");
+        }
+    </script>
+    {% endblock %}
+</html>
+
+<!-- |date:"d/m/Y" -->

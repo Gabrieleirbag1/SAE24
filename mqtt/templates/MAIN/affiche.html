@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+{%load static%}
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{%static 'MAIN/styles_mainpage.css'%}">
+    </head>
+    <body>
+        <div class='content'>
+            <h1> Affichage </h1>
+    
+            <div class='tout'>
+                <div class='affichage'>
+                    <p id="nom" class="">Nom du capteur : {{mq.nom}}</p>
+                    <p id="piece" class="">Piece : {{mq.piece}}</p>
+                    <p id="emplacement" class="">Emplacement : {{mq.emplacement}}</p>
+                </div>
+                <a href="/mainpage"> <button class=''> Accéder à l'accueil  </button> </a>
+            </div>
+        </div>
+        
+        <script src="" async defer></script>
+    </body>
+</html>

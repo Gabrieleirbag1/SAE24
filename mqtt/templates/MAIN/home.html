@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+{%block HEAD%}
+{%endblock%}
+    
+    {% include 'MAIN/main.html' %}
+
+    {% block HEADER %}
+    {%endblock%}
+
+    {% block content %}
+    {% for mq, do in data %}
+    <div class="image-dehors">
+        <div class="image-dedans" id="maison">
+          <img src="{% static '/images/house.png' %}" type='image/png'>
+          <div class="phome">
+            <p> {{mq.emplacement}}</p>
+            <p> {{mq.piece}}</p>
+          </div>
+        </div>
+
+        <div class="image-dedans" id="temp">
+            <img src="{% static '/images/temp.png' %}" type='image/png'>
+            <p class="ptemp"> {{do.temp}}°C</p>
+        </div>
+        <div class="image-dedans" id="clock">
+            <img src="{% static '/images/clock.gif' %}" type='image/gif'>
+            <p> {{do.date}}</p>
+            <p> {{do.heure}}</p>
+        </div>
+    </div>
+    {%endfor%}
+
+    {% endblock %}
+</html>
+
+<!-- |date:"d/m/Y" -->

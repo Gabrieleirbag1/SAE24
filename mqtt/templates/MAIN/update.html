@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+{%block HEAD%}
+{%endblock%}
+    
+    {% include 'MAIN/main.html' %}
+    
+    {% block HEADER %}
+    {%endblock%}
+
+<body>
+    <div class='contenu'>
+        <h1> Mettre à jour </h1>
+
+        <div class='formulaire'>
+            <div class="add">
+                <form method="post" action="/update/{{id}}/" class="form">
+                {% csrf_token %}
+                {{ form.as_p }} 
+
+            </div>
+            <p> <input type="submit" value="Mettre à jour" class="btn btn-info"> </p>
+                </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

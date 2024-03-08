@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+    {% block HEAD %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="refresh" content="10">
+    <title>SAE-24</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'MAIN/styles_mainpage.css' %}">
+    <link rel="stylesheet" href="{% static 'BOOTSTRAP/css_BOOTSTRAP/bootstrap.min.css' %}">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="{% static 'canvasjs/canvasjs-chart-3.7.9/canvasjs.min.js' %}"></script>
+    {% endblock %}
+</head>
+
+<body>
+    <header>
+        {% block HEADER %}
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-dark p-4">
+                    <h5 class="text-white h4">SAE 2.04</h5>
+                    <div class="ttee">
+                        <a class="nav-item nav-link active" href="/home">
+                            <button type="button" class="btn btn-outline-primary">Home <span class="sr-only">(current)</span></button>
+                        </a>
+                        <a class="nav-item nav-link" href="/mainpage">
+                            <button type="button" class="btn btn-outline-primary">Liste <span class="sr-only">(current)</span></button>
+                        </a>
+
+                        <a class="nav-item nav-link" href="/listecomplete">
+                                <button type="button" class="btn btn-outline-primary">Liste complète <span class="sr-only">(current)</span></button>
+                        </a>
+                        
+                        <a class="nav-item nav-link" href="/graphique">
+                            <button type="button" class="btn btn-outline-primary">Graphique <span class="sr-only">(current)</span></button>
+                        </a>
+                        <a class="nav-item nav-link" href="/graphiquecomplet">
+                            <button type="button" class="btn btn-outline-primary">Graphique complet<span class="sr-only">(current)</span></button>
+                        </a>
+
+                        <a class="nav-item nav-link" href="/graphiquecomplet">
+                        <label class="btn btn-outline-primary">
+                            Importer<input type="file" style="display: none;">
+                        </label>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+        </div>
+        {% endblock %}
+    </header>
+
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
